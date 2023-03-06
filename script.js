@@ -140,6 +140,44 @@ btn.onclick=()=>{
     }
     else{
 
+
+        //checking if values are same in column or row
+        var flag2=false;
+
+        for(var i=0;i<9;i++){
+            for(var j=0;j<9;j++){
+                if(arr[i][j]!=0){
+                    
+
+                    //checking in row
+                    for(var d=0;d<9;d++){
+                        if(d!=j){
+                            if(arr[i][d]==arr[i][j]){
+                                flag2=true;
+                            }
+                        }
+                    }
+
+                    //checking in column
+                    for(var d=0;d<9;d++){
+                        if(d!=i){
+                            if(arr[d][j]==arr[i][j]){
+                                flag2=true;
+                            }
+                        }
+                    }
+
+                    
+                }
+            }
+        }
+
+
+        if(flag2){
+            alert("Same values in rows or columns!! Please Check");
+        }
+        else{
+
     var print=solver(arr,9);
 
     if(print){
@@ -161,6 +199,7 @@ btn.onclick=()=>{
         alert("No solution exists for your input");
     }
    
+}
 
 
   }
